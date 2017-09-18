@@ -1,0 +1,4 @@
+rootProject.name = 'api-boot'
+include 'server'
+include 'web'
+

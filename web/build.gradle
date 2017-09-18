@@ -1,0 +1,43 @@
+group 'com.lanshiqin'
+version '1.0'
+
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
+    }
+}
+
+apply plugin: 'com.moowork.node'
+apply plugin: 'java'
+
+
+
+//调用npm run build命令的Gradle任务
+task npmBuild(type: NpmTask, dependsOn: npmInstall) {
+    group = 'node'
+    args = ['run', 'build']
+}
+
+//Gradle的java插件的jar任务，依赖npmBuild,即web子模块打jar包前必须运行npm run build
+jar.dependsOn npmBuild
+
+//调用npm run dev
+task npmDev(type: NpmTask, dependsOn: npmInstall) {
+    group = 'node'
+    args = ['run', 'dev']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
