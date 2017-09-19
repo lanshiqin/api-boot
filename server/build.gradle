@@ -35,6 +35,9 @@ repositories {
 dependencies {
     compile project(':web')
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

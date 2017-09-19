@@ -1,0 +1,7 @@
+spring:
+  data:
+  # 配置mongoDB
+    mongodb:
+      database: apiboot
+      host: localhost
+      port: 27017

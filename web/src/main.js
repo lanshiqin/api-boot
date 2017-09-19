@@ -1,15 +1,18 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import router from './router'
+import VueRouter from 'vue-router'
+import App from './App.vue'    // 路由挂载
+import Routers from './router/index.js'       // 路由列表
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'    // 使用 CSS
 
-Vue.config.productionTip = false
+Vue.use(VueRouter)
 
-/* eslint-disable no-new */
+Vue.use(iView)
+
 new Vue({
   el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+  router: Routers,
+  render: h => h(App)
 })
