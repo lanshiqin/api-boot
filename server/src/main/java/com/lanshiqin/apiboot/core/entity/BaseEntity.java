@@ -2,13 +2,11 @@ package com.lanshiqin.apiboot.core.entity;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
  * 实体基类
  */
 @Data
-public class BaseEntity implements Serializable {
+public class BaseEntity {
     protected String createDate;  // 创建日期
     protected String createTime;  // 创建时间
     protected String createUser;  // 创建用户

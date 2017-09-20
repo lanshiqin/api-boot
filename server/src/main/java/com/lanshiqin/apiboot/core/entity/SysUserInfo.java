@@ -1,12 +1,10 @@
 package com.lanshiqin.apiboot.core.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class SysUserInfo extends StringEntity {
     private String nick;        // 昵称
     private String sex;         // 性别
@@ -35,5 +33,4 @@ public class SysUserInfo extends StringEntity {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-
 }
