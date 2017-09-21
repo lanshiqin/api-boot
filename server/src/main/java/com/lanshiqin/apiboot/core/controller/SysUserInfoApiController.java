@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * 用户信息维护控制器
  */
 @RestController
+@RequestMapping("api")
 public class SysUserInfoApiController extends JsonBaseController {
 
     private SysUserInfoRepository sysUserInfoRepository;
@@ -43,12 +44,12 @@ public class SysUserInfoApiController extends JsonBaseController {
     }
 
     /**
-     * 获取所有用户信息
-     * @return 所有用户信息
+     * 获取所有用户信息列表
+     * @return 所有用户信息列表
      */
     @GetMapping("/userinfo/list")
     public JsonDataBean list(){
-        return getJsonDataBean("200","",sysUserInfoRepository.findAll());
+        return getJsonDataBean("200","用户信息列表",sysUserInfoRepository.findAll());
     }
 
     /**
@@ -58,7 +59,7 @@ public class SysUserInfoApiController extends JsonBaseController {
      */
     @GetMapping("/userinfo/{id}")
     public JsonDataBean findById(@PathVariable String id){
-        return getJsonDataBean("200","",sysUserInfoRepository.findById(id));
+        return getJsonDataBean("200","用户信息",sysUserInfoRepository.findById(id));
     }
 
     /**

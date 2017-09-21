@@ -1,72 +1,113 @@
 <style scoped>
-  .layout{
+  .layout {
     border: 1px solid #d7dde4;
     background: #f5f7f9;
     position: relative;
     border-radius: 4px;
     overflow: hidden;
+    height: 100%;
   }
-  .layout-breadcrumb{
+
+  .layout-breadcrumb {
     padding: 10px 15px 0;
   }
-  .layout-content{
+
+  .layout-content {
     min-height: 200px;
     margin: 15px;
     overflow: hidden;
     background: #fff;
     border-radius: 4px;
   }
-  .layout-content-main{
+
+  .layout-content-main {
     padding: 10px;
   }
-  .layout-copy{
+
+  .layout-copy {
     text-align: center;
     padding: 10px 0 20px;
     color: #9ea7b4;
   }
-  .layout-menu-left{
+
+  .layout-menu-left {
     background: #464c5b;
   }
-  .layout-header{
+
+  .layout-header {
     height: 60px;
     background: #fff;
-    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   }
-  .layout-logo-left{
+
+  .layout-logo-left {
     width: 90%;
     height: 30px;
     background: #5b6270;
     border-radius: 3px;
     margin: 15px auto;
   }
-  .layout-ceiling-main a{
+
+  .layout-ceiling-main a {
     color: #9ba7b5;
   }
-  .layout-hide-text .layout-text{
+
+  .layout-hide-text .layout-text {
     display: none;
   }
-  .ivu-col{
+
+  .ivu-col {
     transition: width .2s ease-in-out;
+  }
+
+  .layout-ceiling {
+    background: #464c5b;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+
+  .layout-ceiling-main {
+    float: right;
+    margin-right: 15px;
+  }
+
+  .layout-ceiling-main a {
+    color: #9ba7b5;
   }
 </style>
 <template>
   <div class="layout" :class="{'layout-hide-text': spanLeft < 5}">
     <Row type="flex">
       <Col :span="spanLeft" class="layout-menu-left">
-      <Menu active-name="1" theme="dark" width="auto">
-        <div class="layout-logo-left"></div>
-        <MenuItem name="1">
-          <Icon type="ios-navigate" :size="iconSize"></Icon>
-          <span class="layout-text">选项 1</span>
-        </MenuItem>
-        <MenuItem name="2">
-          <Icon type="ios-keypad" :size="iconSize"></Icon>
-          <span class="layout-text">选项 2</span>
-        </MenuItem>
-        <MenuItem name="3">
-          <Icon type="ios-analytics" :size="iconSize"></Icon>
-          <span class="layout-text">选项 3</span>
-        </MenuItem>
+      <Menu active-name="1" theme="dark" width="auto" :open-names="['1']">
+
+        <Submenu name="0">
+          <template slot="title">
+            <Icon type="pricetag"></Icon>
+            <span class="layout-text">系统维护</span>
+          </template>
+
+            <MenuItem name="/core/userinfo">
+              <Icon type="android-create"></Icon>
+              <span class="layout-text">用户信息维护</span>
+            </MenuItem>
+
+            <MenuItem name="/core/roleinfo">
+              <Icon type="social-buffer"></Icon>
+              <span class="layout-text">角色信息维护</span>
+            </MenuItem>
+
+            <MenuItem name="/core/perinfo">
+              <Icon type="social-buffer"></Icon>
+              <span class="layout-text">权限信息维护</span>
+            </MenuItem>
+
+            <MenuItem name="/core/depinfo">
+              <Icon type="social-buffer"></Icon>
+              <span class="layout-text">部门信息维护</span>
+            </MenuItem>
+        </Submenu>
+
       </Menu>
       </Col>
       <Col :span="spanRight">
