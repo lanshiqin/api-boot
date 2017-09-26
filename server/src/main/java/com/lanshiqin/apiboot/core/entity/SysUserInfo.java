@@ -1,10 +1,10 @@
 package com.lanshiqin.apiboot.core.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import javax.persistence.*;
 
-@Data
-@EqualsAndHashCode(callSuper = false)
+
+@Entity
+@Table(name = "sys_user_info")
 public class SysUserInfo extends StringEntity {
     private String nick;        // 昵称
     private String sex;         // 性别

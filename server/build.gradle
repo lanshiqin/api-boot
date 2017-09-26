@@ -23,7 +23,7 @@ sourceCompatibility = 1.8
 
 jar {
     baseName = 'server'
-    version =  '1.0'
+    version = '1.0'
 }
 
 repositories {
@@ -35,7 +35,8 @@ repositories {
 dependencies {
     compile project(':web')
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-    compile('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    runtime('mysql:mysql-connector-java')
+    compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

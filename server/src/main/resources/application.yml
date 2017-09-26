@@ -1,7 +1,22 @@
+#服务器配置
+server:
+  #端口
+  port: 9999
+
 spring:
-  data:
-  # 配置mongoDB
-    mongodb:
-      database: apiboot
-      host: localhost
-      port: 27017
+  #数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/apiboot?characterEncoding=utf8&useSSL=false
+    username: root
+    password: BvcxzgfD1
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    properties:
+      hibernate:
+        dialect:  org.hibernate.dialect.MySQL5Dialect
