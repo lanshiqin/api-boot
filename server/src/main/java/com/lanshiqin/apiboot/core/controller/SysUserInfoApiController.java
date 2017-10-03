@@ -1,14 +1,10 @@
 package com.lanshiqin.apiboot.core.controller;
 
 import com.lanshiqin.apiboot.core.bean.JsonDataBean;
-import com.lanshiqin.apiboot.core.dao.CurdDao;
 import com.lanshiqin.apiboot.core.entity.SysUserInfo;
 import com.lanshiqin.apiboot.core.repository.SysUserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
 
 /**
  * 用户信息维护控制器
